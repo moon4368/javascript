@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mole!</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>mole! <span class="score">0</span></h1>
+  <button onClick="startGame()">Start!</button>
+
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+
+  <script>
+    var holes = document.querySelectorAll(".hole");
+    var moles = document.querySelectorAll(".mole");
+    var score = document.querySelector(".score");
+    var countScore = 0;
+    var ranNum;
+    var totalSec = setInterval(function(){
+      totalSec += 1;
+    },1000)
+
+    function startGame(){
+      totalSec = 0;
+      countScore = 0;
+      pop(ranNum);
+    }
+    
+    moles.forEach(function (mole){//각 구멍에 click이벤트로 count함수 호출
+      mole.addEventListener("click",count);
+    })
+    
+    
+    function pop(raNum){
+      var gameTime;
+      gameTime = ((Math.random()*0.8)+0.2)*1000;//두더지 사라지는 시간 ms로 세팅
+      rnum = Math.floor(Math.random()*(moles.length)); 
+      if (raNum === rnum){
+        pop();
+      }else{
+        holes[rnum].classList.add("up");
+      }
+      if(totalSec < 11){
+        setTimeout(function(){
+          holes[rnum].classList.remove("up");
+          pop(ranNum);
+        },gameTime);
+      }else{
+        // break;
+      }
+      raNum = rnum;
+    }
+    function count(){
+      countScore += 1; //클릭됐을때 1씩 증가
+      score.innerHTML = `${countScore}`//증가된 점수를 출력
+      this.parentNode.classList.remove("up");
+    }
+  </script>
+</body>
+</html>
