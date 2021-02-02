@@ -6,4 +6,4 @@ clone coding &amp; toy project by vanilla javascript
 |Carousel-slider|Carousel slide made with JavaScript only|
 |paintjs|use htmlCanvas&javascript|
 |interactice| Create a screen that moves with canvas and javascript|
-|nowcoding|javascript challenge 30|
+|nowcoding|javascript challenge 11|
