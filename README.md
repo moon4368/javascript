@@ -1,7 +1,7 @@
 # javascript
 clone coding &amp; toy project by vanilla javascript
 
-|title|description|
+|folder|description|
 |:--:|:--:|
 |Carousel-slider|Carousel slide made with JavaScript only|
 |paintjs|use htmlCanvas&javascript|
